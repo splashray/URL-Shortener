@@ -4,7 +4,7 @@ const rateLimit = require("express-rate-limit");
 const shortId = require("shortid")
 
 const ShortUrl = require("../models/shortUrlModel")
-const User = require("../models/UserModel")
+const User = require("../models/userModel")
 
 
 const limiter = rateLimit({
