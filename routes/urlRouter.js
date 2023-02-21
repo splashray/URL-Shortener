@@ -6,6 +6,7 @@ const shortId = require("shortid")
 const ShortUrl = require("../models/shortUrlModel")
 const User = require("../models/UserModel")
 
+
 const limiter = rateLimit({
     windowMs: 60 * 60 * 1000, // 1 hour
     max: 10, // limit each user to 10 requests per windowMs
@@ -27,7 +28,8 @@ router.get('/', async (req,res)=>{
 
 router.post('/shortUrls', limiter, async (req, res) => {
     let shortUrl;
-    
+
+    // get user's if from the cookie
     const userId = req.cookies.user_id;
 
     if (userId) {
